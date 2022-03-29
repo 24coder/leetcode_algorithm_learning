@@ -17,9 +17,9 @@ public:
     auto dumy=new ListNode(-1) ,cur=dumy;   %添加一个虚拟头结点，next指针指向的是用来存放相加结果的链表的头结点  这个节点的值永远不会用到  此时不用关心
 
     int t=0;
-    while(l1||l2||t)
+    while(l1||l2||t)   %这几步是一个相加的逻辑  判断是否都为零  都为零可以直接返回了 
     {
-        if(l1)
+        if(l1)   %谁不为零 来加谁
         {
             t=t+l1->val;
             l1=l1->next;
