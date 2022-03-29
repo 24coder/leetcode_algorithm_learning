@@ -1,1 +1,47 @@
+两数相加
+添加一个虚拟头结点，next指针指向的是用来存放相加结果的链表的头结点
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    auto dumy=new ListNode(-1) ,cur=dumy;   %添加一个虚拟头结点，next指针指向的是用来存放相加结果的链表的头结点  这个节点的值永远不会用到  此时不用关心
+
+    int t=0;
+    while(l1||l2||t)
+    {
+        if(l1)
+        {
+            t=t+l1->val;
+            l1=l1->next;
+        }
+        if(l2)
+        {
+            t=t+l2->val;
+            l2=l2->next;
+        }
+        cur=cur->next=new ListNode(t%10);
+        t/=10;
+    }
+        return dumy->next;
+    }
+};
+
+
+
+
+
+
+
+
+
 
