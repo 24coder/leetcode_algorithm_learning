@@ -1,1 +1,30 @@
+1、将数字转化成字符串   简单直接
+判断ss==ss(rbegin(),rend())  %指针从后往前移动
 
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    if(x<0) return 0;
+    string ss=to_string(x);
+    return ss==string(ss.rbegin(),ss.rend());
+    }
+    
+};
+
+
+2、将x的每一位取出来然后每次都乘以10 然后将最后的结果与当初的x进行对比
+class Solution {
+public:
+    bool isPalindrome(int x) {
+    if(x<0) return 0;
+    long long res=0;
+    int y=x;    //注意这个时候应该把y给存储一下  后面的x是变化之后的
+    while(x)
+    {
+        res=res*10+x%10;   //将x的每一位取出来然后每次都乘以10 然后将最后的结果与当初的x进行对比
+        x/=10;
+    }
+    return res==y;
+    }
+    
+};
