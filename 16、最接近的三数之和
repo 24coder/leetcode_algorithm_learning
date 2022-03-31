@@ -2,7 +2,7 @@
 优化三重循环简化成双重
 分两种情况 一种是三个数大于目标值  一种是三个数小于目标值 
 要使用pair的第一个元素存放三个数的和跟目标值之间的误差  使用min进行对比 
-min对于pair类型的数组的对比方式是先对第一个元素进行对比 第一个元素相等的话再对第二个元素进行对比
+min对于pair类型的数组的对比方式是先对第一个元素进行对比 第一个元素相等的话再对第二个元素进行对比  
 class Solution {
 public:
     int threeSumClosest(vector<int>& nums, int target) {
