@@ -17,7 +17,7 @@ while left>right
 #查找失败
 
 
-模版1
+模版1  适用于边界都能取到的情况下(  即[左闭右闭]  )
 int  bisearch(int a[],int n,int key)
 {
   int low=0;
@@ -34,6 +34,26 @@ int  bisearch(int a[],int n,int key)
 }
 
 
+模板2  适用于边界不能取到的情况下(   即[左开右闭)   )
+int  bisearch(int a[],int n,int key)
+{
+  int low=0;
+  int high=n-1;
+  int mid=0;
+  while(low<high)  //这里应该有等号 等号是有意义的 下面这个例子就是(上一次low和high不相等 mid不等于目标值  下一次循环low和high相等  
+  {                 //mid等于目标值  就是mid等于low和high其中的一个值的情况
+    mid=(high+low)/2;
+    if(a[mid]<target) low=mid+1;   //因为上面low和high不能取到等号 所以不能进行加1
+    else if(a[mid]>target) high=mid;
+    else return mid;
+  }
+  return -1;
+}
+
+
+
+详细解释参考下面文档：
+https://programmercarl.com/0704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.html#%E6%80%9D%E8%B7%AF
 
 
 
