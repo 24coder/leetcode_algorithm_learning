@@ -1,6 +1,6 @@
 二分查找的条件
 1、有序性
-2、存在上下界（）
+2、存在上下界
 3、能够通过索引访问(所以对于链表来说不是很适合进行二分查找)
 伪代码：
 left=0  right=len(array)-1
@@ -23,14 +23,14 @@ int  bisearch(int a[],int n,int key)
   int low=0;
   int high=n-1;
   int mid=0;
-  while(low<=high)  //这里应不应该有等号  上一次low和high不相等 mid不等于目标值  下一次循环low和high相等  mid等于目标值  就是mid等于low和high其中的一个值的情况
-  {
+  while(low<=high)  //这里应该有等号 等号是有意义的 下面这个例子就是(上一次low和high不相等 mid不等于目标值  下一次循环low和high相等  
+  {                 //mid等于目标值  就是mid等于low和high其中的一个值的情况
     mid=(high+low)/2;
     if(a[mid]<target) low=mid+1;
     else if(a[mid]>target) high=mid-1;
-    else return true;
+    else return mid;
   }
-  return false;
+  return -1;
 }
 
 
