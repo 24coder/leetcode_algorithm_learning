@@ -34,7 +34,7 @@ int  bisearch(int a[],int n,int key)
 }
 
 
-模板2  适用于边界不能取到的情况下(   即[左开右闭)   )
+模板2  适用于边界不能取到的情况下(   即[左开右闭)   ) 这一个不是很懂
 int  bisearch(int a[],int n,int key)
 {
   int low=0;
