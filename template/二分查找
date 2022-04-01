@@ -1,1 +1,17 @@
+二分查找的条件
+1、有序性
+2、存在上下界（）
+3、能够通过索引访问(所以对于链表来说不是很适合进行二分查找)
 
+left=0  right=len(array)-1
+while left<=right
+  mid=(left+right)/2
+  if arrry[mid]==target
+    #find the target
+    break  or  return result
+  else if array[mid]<target
+    left=mid+1
+  else
+    right=mid-1
+while left>right
+#查找失败
