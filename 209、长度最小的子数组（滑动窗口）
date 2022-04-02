@@ -11,12 +11,12 @@ public:
 		int end = 0;
 		double sum = 0;
 		if (s == 0 || nums.size() == 0) return 0;
-		while (end < nums.size()) {
+		while (end < nums.size()) {  //end只管往后走 一旦满足条件就把上窗口收缩
 			sum = sum + nums[end];
 			while (sum >= s) {
-				res = min(res, end - start + 1);
-				sum = sum - nums[start];
-				start++;
+				res = min(res, end - start + 1);  //这行跟具体的题目有关
+				sum = sum - nums[start];   
+				start++;    //进行上窗口收缩  一直收缩到不满足题目要求
 			}
 			end++;
 		}
