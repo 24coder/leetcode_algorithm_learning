@@ -1,7 +1,7 @@
 1、使用双指针 两个指针分别指向头和尾 每次头结点往后面移动一位 然后计算一次面积 更新最大面积 然后尾节点向前移动一位同样更新面积最大值 
 代码示例：
 
-```c++
+
 class Solution {
 public:
     int maxArea(vector<int>& height) {
