@@ -1,0 +1,22 @@
+1、建立虚拟头结点
+2、注意链表指针调整的顺序，防止改变链表的next之后，后面的链表就找不到了
+
+
+
+
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+    auto dummy=new ListNode(-1);
+    dummy->next=head;
+    for(auto p=dummy;p->next&&p->next->next;){
+        auto a=p->next , b=a->next;
+        p->next=b;
+        a->next=b->next;
+        b->next=a;
+        p=a;
+        
+    }
+    return dummy->next;
+    }
+};
