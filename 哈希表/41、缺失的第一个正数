@@ -1,0 +1,14 @@
+1、将nums中所有的数字都放入到hash表中
+2、将n从0开始递增，每次都在hash表中查找是否存在  存在的话就递增 不存在就返回
+
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+    int n=0;
+    unordered_set<int>map;
+    for(auto x:nums) map.insert(x);
+    
+    while(map.count(n)) n++;
+    return n;
+    }
+};
