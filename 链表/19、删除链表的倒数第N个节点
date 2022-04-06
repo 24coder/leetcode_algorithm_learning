@@ -1,22 +1,19 @@
-1、建立虚拟头结点
-2、注意链表指针调整的顺序，防止改变链表的next之后，后面的链表就找不到了
-
-
-
+1、常规简单题
 
 class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) {
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
     auto dummy=new ListNode(-1);
-    dummy->next=head;
-    for(auto p=dummy;p->next&&p->next->next;){
-        auto a=p->next , b=a->next;
-        p->next=b;
-        a->next=b->next;
-        b->next=a;
-        p=a;
-        
+    auto p=dummy;
+    int n=0;
+    //遍历链表先找到链表总长度 
+    for( ;p;p=p->next){
+        n++;
     }
+    //找到链表中倒数第N个节点  并把指针指针指向这个节点的头一个节点  因为要进行next域的替换
+    for(int i=0;i<n-k-1;i++) p=p->next;
+    //删除这个节点
+    p->next=p->next->next;
     return dummy->next;
     }
 };
