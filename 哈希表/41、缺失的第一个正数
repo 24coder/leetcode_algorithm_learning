@@ -4,7 +4,7 @@
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
-    int n=0;
+    int n=1;
     unordered_set<int>map;
     for(auto x:nums) map.insert(x);
     
