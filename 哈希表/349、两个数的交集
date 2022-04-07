@@ -1,0 +1,58 @@
+1、将num1中所有的数放入unordered_set<int> res中，然后遍历nums2一旦在unordered_set<int> res发现，就加入到nums3中
+2、此时nums3中的元素是重复的  需要进行去重  利用下面的两个函数
+sort(nums3.begin(),nums3.end());
+nums3.erase(unique(nums3.begin(), nums3.end()), nums3.end());
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+    unordered_set<int> res;
+    vector<int> nums3;
+    for(auto x:nums1) res.insert(x);
+    for(auto x:nums2){
+        if(res.count(x)){
+            nums3.push_back(x);
+        }
+    }
+    sort(nums3.begin(),nums3.end());
+    nums3.erase(unique(nums3.begin(), nums3.end()), nums3.end());
+    return nums3; 
+    }
+};
+
+2、使用两个set容器进行
+最后进行强制类型转换 将 unordered_set<int>转换成vector<int>       
+return vector<int>(result_set.begin(), result_set.end());
+
+
+代码示例：
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> result_set; // 存放结果
+        unordered_set<int> nums_set(nums1.begin(), nums1.end());
+        for (int num : nums2) {
+            // 发现nums2的元素 在nums_set里又出现过
+            if (nums_set.find(num) != nums_set.end()) {
+                result_set.insert(num);
+            }
+        }
+        return vector<int>(result_set.begin(), result_set.end());
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
