@@ -1,3 +1,4 @@
+```
 class Solution {
 public:
   //存放结果和路径
@@ -29,4 +30,4 @@ public:
 
 	};
 
-   
+   ```
