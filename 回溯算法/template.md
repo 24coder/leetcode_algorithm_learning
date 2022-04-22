@@ -1,32 +1,73 @@
+//断点调试代码示例  以组合问题为例
+
 ```cpp
+//头文件
+#include<vector>
+#include<iostream>
+using namespace std;
 class Solution {
 public:
-  	//存放结果和路径
-vector<vector<int> > ans;  
-vector<int> path;
- 
-vector<vector<int>> combine(int n, int k) {
-	dfs(n, k, 1);
-	return ans;
-}
-  
-  
-void dfs(int n,int k,int start) {
-//设置结束条件
-if (!k) {
-	ans.push_back(path);
-	return;
-}
-//设置结束条件
-for(int i = start; i <= n; i++) {
-//选择路径
-	path.push_back(i); 
-//回溯
-	dfs(n, k-1, i+1);
-//撤销路径
-	path.pop_back();
+	vector<vector<int>> res;
+	vector<vector<int>> subsets(vector<int>& nums) {
+		// 记录走过的路径
+		vector<int> track;
+		backtrack(nums, 0, track);
+		return res;
 	}
-}
+
+	void backtrack(vector<int>& nums, int start, vector<int>& track) {
+		cout << "传入的起始位置为："<<start<<""<< endl;
+		cout << "开始执行track " << start << endl;
+		res.push_back(track);
+		
+	for (int i = start; i < nums.size(); i++) {
+		cout << "i的值为：" << i << endl;
+		// 做选择
+		track.push_back(nums[i]); 
+		// 回溯
+		cout << "track的大小" << track.size()<< endl;
+		cout << "res的大小"<<res.size() << endl;
+		backtrack(nums, i + 1, track);
+		// 撤销选择			
+		cout << "回退1个" << endl;
+		track.pop_back();
+		cout << "track的大小" << track.size() << endl;
+	}
+	}
+
+	//回来执行的时候 会执行i++ 并且还会进行判断是否符合条件
+	
 };
+
+
+//源文件  测试
+
+#include"static_list.h"
+#include<iostream>
+void  main() {
+
+	cout << "****************************************************************\n";
+	vector<int>ceshi{1,2,3};
+	vector<vector<int> >res;
+	Solution su;
+	res=su.subsets(ceshi);
+	
+	
+	
+
+
+	/*for (int i = 0; i != res.size(); i++)
+	{
+		for (int j = 0; j != res[j].size(); j++) {
+			
+				cout << res[i][j] << " ";
+			
+		}
+		cout << endl;
+	}*/
+	cout << "****************************************************************\n";
+	system("pause");
+}
+
 
    ```
